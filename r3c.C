@@ -17,7 +17,9 @@ using namespace std;
 using namespace ytpmv;
 
 int main(int argc, char** argv) {
-	string buf = get_file_contents("robocop3_collab.mod");
+	ytpmv::parseOptions(argc, argv);
+	
+	string buf = get_file_contents("songs/robocop3_collab.mod");
 	
 	addSource("o", "sources/o_35000.wav", "", 3.5/30);
 	addSource("lol", "sources/lol_20800.wav", "sources/lol.mkv", 2.08*2/30);
