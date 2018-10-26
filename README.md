@@ -29,3 +29,6 @@ If your system can not support OpenGL you can play the YTPMVs in audio only mode
 
 **example4.C**
 - Song: madotsuki - This Song Is Sad, I Swear (https://modarchive.org/index.php?request=view_by_moduleid&query=182096)
+
+**r3c.C**
+- collab entry for robocop3 (https://modarchive.org/index.php?request=view_by_moduleid&query=136815)
