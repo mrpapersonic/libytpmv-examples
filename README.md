@@ -8,6 +8,15 @@ export LIBYTPMV_DIR=/path/to/libytpmv
 make example1 -j$(nproc)
 ./example1
 ```
+Make sure all OpenGL and GLFW development files are installed. On debian based systems these are:
+```
+libglew-dev libglfw3-dev libglm-dev libgles2-mesa-dev
+```
+
+If your system can not support OpenGL you can play the YTPMVs in audio only mode:
+```bash
+./example1 playaudio
+```
 
 **example1.C**
 - Song: hehj (https://modarchive.org/index.php?request=view_by_moduleid&query=106629)
