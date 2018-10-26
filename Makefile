@@ -27,6 +27,9 @@ example3: example3.o $(LIBYTPMV_DIR)/libytpmv.a
 example4: example4.o $(LIBYTPMV_DIR)/libytpmv.a
 	g++ -o $@ $< $(CC_FLAGS) $(LIBS)
 
+example5: example5.o $(LIBYTPMV_DIR)/libytpmv.a
+	g++ -o $@ $< $(CC_FLAGS) $(LIBS)
+
 r3c: r3c.o $(LIBYTPMV_DIR)/libytpmv.a
 	g++ -o $@ $< $(CC_FLAGS) $(LIBS)
 
