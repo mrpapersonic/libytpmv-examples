@@ -18,6 +18,10 @@ If your system can not support OpenGL you can play the YTPMVs in audio only mode
 ./example1 playaudio
 ```
 
+**example0.C**
+- Song: edzes - inside beek's mind (https://modarchive.org/index.php?request=view_by_moduleid&query=41017)
+- Video: https://www.youtube.com/watch?v=QeSnbP2Y3ac
+
 **example1.C**
 - Song: hehj (https://modarchive.org/index.php?request=view_by_moduleid&query=106629)
 - Video: https://www.youtube.com/watch?v=lsV5rRjUIqg
@@ -37,6 +41,14 @@ If your system can not support OpenGL you can play the YTPMVs in audio only mode
 **example5.C**
 - Song: xaxaxa - untitled (https://modarchive.org/index.php?request=view_by_moduleid&query=181966)
 - Video: https://www.youtube.com/watch?v=mYS2WRwnBdc
+
+**example6.C**
+- Song: metal beat (https://modarchive.org/index.php?request=view_by_moduleid&query=179905)
+- Video: https://www.youtube.com/watch?v=ZJYdS1p4xWc
+
+**example7.C**
+- Song: kitsune^2 - skuggin' around
+- Video: https://www.youtube.com/watch?v=aGYoEKGbE-o
 
 **r3c.C**
 - collab entry for robocop3 (https://modarchive.org/index.php?request=view_by_moduleid&query=136815)
