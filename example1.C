@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
 	addSource("o", "sources/o_35000.wav", "", 3.5/30);
 	addSource("lol", "sources/lol_20800.wav", "sources/lol.mkv", 2.08*2/30);
 	addSource("hum", "sources/bass1.mkv",
-					"sources/bass1.mkv", 2.8*4/30, 1., 0.2);
+					"sources/bass1.mkv", 2.8*4/30, 1., 1.);
 	addSource("aaaa", "sources/aaaa.wav",
 					"sources/aaaa.mp4", 1.5*4/30, 2., 2.);
 	addSource("gab1", "sources/gab1.mkv",
