@@ -15,6 +15,9 @@ FORCE:
 %.o: %.C
 	g++ -c $(CC_FLAGS) $< -o $@
 
+example0: example0.o $(LIBYTPMV_DIR)/libytpmv.a
+	g++ -o $@ $< $(CC_FLAGS) $(LIBS)
+
 example1: example1.o $(LIBYTPMV_DIR)/libytpmv.a
 	g++ -o $@ $< $(CC_FLAGS) $(LIBS)
 
@@ -28,6 +31,12 @@ example4: example4.o $(LIBYTPMV_DIR)/libytpmv.a
 	g++ -o $@ $< $(CC_FLAGS) $(LIBS)
 
 example5: example5.o $(LIBYTPMV_DIR)/libytpmv.a
+	g++ -o $@ $< $(CC_FLAGS) $(LIBS)
+
+example6: example6.o $(LIBYTPMV_DIR)/libytpmv.a
+	g++ -o $@ $< $(CC_FLAGS) $(LIBS)
+
+example7: example7.o $(LIBYTPMV_DIR)/libytpmv.a
 	g++ -o $@ $< $(CC_FLAGS) $(LIBS)
 
 r3c: r3c.o $(LIBYTPMV_DIR)/libytpmv.a
