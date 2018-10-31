@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
 					"sources/gab5.mkv", 3.4*4/30, 1./2, 1./2);
 	addSource("gab7", "sources/gab7.mkv",
 					"sources/gab7.mkv", 1.7*4/30, 1./2, 1./2);
-	addSource("gab8", "sources/gab8.wav",
+	addSource("gab8", "sources/gab8_1.wav",
 					"sources/gab8.mkv", 2.7*2/30, 1./2, 1./5);
 	addSource("perc1", "sources/perc1.mkv",
 					"sources/perc1.mkv", 1., 1., 1.);
@@ -146,7 +146,7 @@ int main(int argc, char** argv) {
 				if(part2) {
 					src = getSource("gab8");
 					n.pitchSemitones -= 24;
-					n.amplitudeDB += 4;
+					//n.amplitudeDB += 1;
 				} else {
 					src = getSource("gab5");
 					n.pitchSemitones -= 24;
@@ -192,8 +192,8 @@ int main(int argc, char** argv) {
 		{
 			VideoSegment vs(n, src->video, bpm);
 			vs.zIndex = n.channel;
-			vs.vertexShader = vertexShader;
-			vs.shader = shader;
+			vs.vertexShader = &vertexShader;
+			vs.shader = &shader;
 			
 			//							minSizeScale,	sizeScale	transpKey,	fade,	vx,	vy	vz	rotation	movement
 			vector<float> shaderParams = {0.8,			3.0,		-1.0,		5.0,	0.,	0.,	0.,	-0.7,		0.0};
@@ -262,7 +262,7 @@ int main(int argc, char** argv) {
 	skip: ;
 	}
 	defaultSettings.volume = 0.3;
-	//defaultSettings.skipToSeconds = 145.;
+	//defaultSettings.skipToSeconds = 75.;
 	ytpmv::run(argc, argv, segments, videoSegments);
 	return 0;
 }

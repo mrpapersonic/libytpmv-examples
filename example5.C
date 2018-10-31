@@ -158,7 +158,7 @@ int main(int argc, char** argv) {
 			as.startSeconds += timeOffsetSeconds;
 			segments.push_back(as);
 			
-			vs.shader = shader;
+			vs.shader = &shader;
 			vs.shaderParams = shaderParams;
 			videoSegments.push_back(vs);
 		}

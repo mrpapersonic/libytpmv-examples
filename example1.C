@@ -157,7 +157,7 @@ int main(int argc, char** argv) {
 				segments.push_back(as2);
 			}
 			
-			vs.shader = shader;
+			vs.shader = &shader;
 			vs.shaderParams = shaderParams;
 			vs.zIndex = n.channel;
 			videoSegments.push_back(vs);

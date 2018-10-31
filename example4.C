@@ -176,7 +176,7 @@ int main(int argc, char** argv) {
 				}
 			}
 			
-			vs.shader = shader;
+			vs.shader = &shader;
 			vs.shaderParams = shaderParams;
 			videoSegments.push_back(vs);
 		}

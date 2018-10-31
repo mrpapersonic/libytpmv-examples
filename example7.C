@@ -141,6 +141,7 @@ int main(int argc, char** argv) {
 				src = getSource("hum");
 				n.pitchSemitones -= 12;
 				n.amplitudeDB += 7;
+				// add two audio layers, one an octave higher
 				{
 					AudioSegment as(n, src->audio, bpm);
 					segments.push_back(as);
@@ -181,8 +182,8 @@ int main(int argc, char** argv) {
 		{
 			VideoSegment vs(n, src->video, bpm);
 			vs.zIndex = n.channel;
-			vs.vertexShader = vertexShader;
-			vs.shader = shader;
+			vs.vertexShader = &vertexShader;
+			vs.shader = &shader;
 			
 			//							minSizeScale,	sizeScale	transpKey,	fade,	vx,	vy	vz	rotation	rotateTime
 			vector<float> shaderParams = {0.8,			3.0,		-1.0,		5.0,	0.,	0.,	0.,	0.,			1e9};
@@ -238,8 +239,8 @@ int main(int argc, char** argv) {
 				n.start.rowOffset = -0.15;
 				segments.push_back(AudioSegment(n, src->audio, bpm));
 				VideoSegment vs(n, src->video, bpm);
-				vs.vertexShader = vertexShader;
-				vs.shader = shader;
+				vs.vertexShader = &vertexShader;
+				vs.shader = &shader;
 				vs.shaderParams = shaderParams;
 				vs.vertexes = genRectangle(-1, 0, 0, 1);
 				videoSegments.push_back(vs);

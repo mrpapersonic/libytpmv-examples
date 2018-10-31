@@ -121,7 +121,7 @@ int main(int argc, char** argv) {
 		as.amplitude[1] *= (pan)*2;
 		segments.push_back(as);
 		
-		vs.shader = shader;
+		vs.shader = &shader;
 		vs.shaderParams = shaderParams;
 		vs.zIndex = n.channel;
 		videoSegments.push_back(vs);
