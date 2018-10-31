@@ -50,6 +50,14 @@ If your system can not support OpenGL you can play the YTPMVs in audio only mode
 - Song: kitsune^2 - skuggin' around
 - Video: https://www.youtube.com/watch?v=aGYoEKGbE-o
 
+**example8.C**
+- Song: home alone (https://modarchive.org/index.php?request=view_by_moduleid&query=122611)
+- Video: https://www.youtube.com/watch?v=oZs7pZt1Dlk
+
+**example9.C**
+- Song: ohayou sayori (ddlc)
+- Video: https://www.youtube.com/watch?v=6WBrY08Mt-Q
+
 **r3c.C**
 - collab entry for robocop3 (https://modarchive.org/index.php?request=view_by_moduleid&query=136815)
 - Video: https://www.youtube.com/watch?v=sEJqZmx8UnY
