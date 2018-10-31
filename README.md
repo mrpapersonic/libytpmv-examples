@@ -46,7 +46,7 @@ Sample ytpmvs using libytpmv.
 - Video: https://www.youtube.com/watch?v=sEJqZmx8UnY
 
 
-To play an example, run:
+**To play an example, run:**
 
 ```bash
 export LIBYTPMV_DIR=/path/to/libytpmv
