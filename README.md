@@ -1,23 +1,6 @@
 # YTPMV examples
 Sample ytpmvs using libytpmv.
 
-To play an example, run:
-
-```bash
-export LIBYTPMV_DIR=/path/to/libytpmv
-make example1 -j$(nproc)
-./example1
-```
-Make sure all OpenGL and GLFW development files are installed. On debian based systems these are:
-```
-libglew-dev libglfw3-dev libglm-dev libgles2-mesa-dev
-```
-
-If your system can not support OpenGL you can play the YTPMVs in audio only mode:
-```bash
-./example1 playaudio
-```
-
 **example0.C**
 - Song: edzes - inside beek's mind (https://modarchive.org/index.php?request=view_by_moduleid&query=41017)
 - Video: https://www.youtube.com/watch?v=QeSnbP2Y3ac
@@ -61,3 +44,24 @@ If your system can not support OpenGL you can play the YTPMVs in audio only mode
 **r3c.C**
 - collab entry for robocop3 (https://modarchive.org/index.php?request=view_by_moduleid&query=136815)
 - Video: https://www.youtube.com/watch?v=sEJqZmx8UnY
+
+
+To play an example, run:
+
+```bash
+export LIBYTPMV_DIR=/path/to/libytpmv
+make example1 -j$(nproc)
+./example1
+```
+
+Make sure all OpenGL and GLFW development files are installed. On debian based systems these are:
+
+```
+libglew-dev libglfw3-dev libglm-dev libgles2-mesa-dev
+```
+
+If your system can not support OpenGL you can play the YTPMVs in audio only mode:
+
+```bash
+./example1 playaudio
+```
