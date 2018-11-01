@@ -125,7 +125,6 @@ int main(int argc, char** argv) {
 	// convert to audio and video segments
 	vector<AudioSegment> segments;
 	vector<VideoSegment> videoSegments;
-	int lastGridPos = 0;
 	for(int i=0;i<(int)notes.size();i++) {
 		Note& n = notes[i];
 		Source* src = nullptr;
@@ -152,9 +151,6 @@ int main(int argc, char** argv) {
 			case 0:
 			{
 				// main melody
-				bool part2 = false;
-				if(n.start.seq >= 3 && n.start.seq <= 6) part2 = true;
-				if(n.start.seq >= 11 && n.start.seq <= 14) part2 = true;
 				src = getSource("gab8");
 				n.pitchSemitones -= 24;
 				n.amplitudeDB -= 1;
@@ -192,8 +188,6 @@ int main(int argc, char** argv) {
 				// main melody
 				case 0:
 				{
-					int note = (int)n.pitchSemitones - 22;
-					
 					shaderParams = {0.8, 1.0, -1.0, 2.0, 0.0, 0.0, 0., 0., 0.0};
 					vs.vertexes = genRectangle(0, -1, 1, 0);
 					

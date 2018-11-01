@@ -16,6 +16,7 @@ using namespace std;
 using namespace ytpmv;
 
 int main(int argc, char** argv) {
+	ytpmv::parseOptions(argc, argv);
 	string buf = get_file_contents("songs/beek.mod");
 	
 	addSource("o", "sources/o_35000.wav", "", 3.5/30);

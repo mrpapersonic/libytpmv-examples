@@ -85,7 +85,6 @@ int main(int argc, char** argv) {
 	// convert to audio and video segments
 	vector<AudioSegment> segments;
 	vector<VideoSegment> videoSegments;
-	int lastGridPos = 0;
 	for(int i=0;i<(int)notes.size();i++) {
 		Note& n = notes[i];
 		Source* src = nullptr;
