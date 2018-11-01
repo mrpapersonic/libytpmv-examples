@@ -28,7 +28,6 @@ int main(int argc, char** argv) {
 	addSource("hum2", "sources/bass1_3.wav", "", 2.8/30, 1., 1.);
 	
 	getSource("hum2")->video = getSource("hum")->video;
-	getSource("hum2")->hasVideo = true;
 	
 	string vertexShader = R"aaaaa(
 	#version 330 core

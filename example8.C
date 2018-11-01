@@ -74,53 +74,12 @@ string shader_withborder = R"aaaaa(
 	return vec4(texture2D(image, pos).rgb, opacityScale);
 	)aaaaa";
 
-
-int readAll(int fd,void* buf, int len) {
-	uint8_t* buf1=(uint8_t*)buf;
-	int off=0;
-	int r;
-	while(off<len) {
-		if((r=read(fd,buf1+off,len-off))<=0) break;
-		off+=r;
-	}
-	return off;
-}
-
 void addBackingVideo(vector<VideoSegment>& videoSegments, double songEnd) {
-	int backVideoPipe[2];
-	assert(pipe(backVideoPipe) == 0);
-	loadVideoToFD("/persist/home_alone-1.ogv", backVideoPipe[1]);
+	DynamicVideoSource* source = new DynamicVideoSource("/persist/home_alone-1.ogv", 1354, 768);
+	source->fps = 23.75;
 	
-	VideoSegment vs;
-	vs.shader = &shader;
+	VideoSegment vs(source, -2.3, songEnd);
 	vs.zIndex = -100;
-	vs.shaderParams = {1.,		1000.,		0.,	0.,	0.1,		0.};
-	vs.startSeconds = -2.3;
-	vs.endSeconds = songEnd;
-	vs.speed = 1.;
-	vs.source = nullptr;
-	uint32_t texture = createTexture();
-	
-	double lastFrameTime = 0.;
-	vs.getTexture = [texture, backVideoPipe, lastFrameTime]
-					(const VideoSegment& seg, double timeSeconds) mutable {
-		double frameDuration = 1./23.75;
-		int w = 1354, h = 768;
-		int stride = (w*3 + 3)/4*4;
-		string data;
-		while((timeSeconds - lastFrameTime) >= frameDuration) {
-			data.resize(stride*h);
-			readAll(backVideoPipe[0], &data[0], (int)data.length());
-			lastFrameTime += frameDuration;
-		}
-		if(data.size() > 0) setTextureImage(texture, &data[0], w, h);
-		return texture;
-	};
-	
-	vs.vertexes = genRectangle(-1, -1, 1, 1);
-	vs.vertexVarSizes[0] = 3;
-	vs.vertexVarSizes[1] = 2;
-	vs.vertexVarSizes[2] = 0;
 	videoSegments.push_back(vs);
 }
 
@@ -144,8 +103,6 @@ int main(int argc, char** argv) {
 					"sources/perc2.mkv", 1., 4., 1.);
 	
 	getSource("hum2")->video = getSource("hum")->video;
-	getSource("hum2")->hasVideo = true;
-	
 	
 	SongInfo inf;
 	vector<Instrument> instr;

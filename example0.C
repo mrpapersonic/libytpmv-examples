@@ -49,8 +49,7 @@ int main(int argc, char** argv) {
 
 	string img1data = get_file_contents("fuck.data");
 	Image img1 = {480, 371, img1data};
-	
-	VideoSource imgSource = {"source 1", {img1}, 1.0};
+	ImageSource imgSource(&img1);
 	
 	
 	SongInfo inf;
@@ -82,7 +81,7 @@ int main(int argc, char** argv) {
 		}
 		if(n.channel == 0) n.amplitudeDB += 9;
 		
-		VideoSegment vs(n, src->hasVideo?src->video:imgSource, bpm);
+		VideoSegment vs(n, src->hasVideo()?src->video:&imgSource, bpm);
 		
 		
 		// set video clip position and size

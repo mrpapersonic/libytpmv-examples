@@ -55,8 +55,7 @@ int main(int argc, char** argv) {
 
 	string img1data = get_file_contents("fuck.data");
 	Image img1 = {480, 371, img1data};
-	
-	VideoSource imgSource = {"source 1", {img1}, 1.0};
+	ImageSource imgSource(&img1);
 	
 	
 	SongInfo inf;
@@ -94,7 +93,7 @@ int main(int argc, char** argv) {
 		{
 			int gridN = 4;
 			int gridSize = gridN*gridN;
-			VideoSegment vs(n, src->hasVideo?src->video:imgSource, bpm);
+			VideoSegment vs(n, src->hasVideo()?src->video:&imgSource, bpm);
 			if(int(videoSegments.size()) >= gridSize) {
 				videoSegments[videoSegments.size()-gridSize].endSeconds = vs.startSeconds-0.01;
 			}
