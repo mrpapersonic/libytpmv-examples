@@ -84,9 +84,9 @@ int main(int argc, char** argv) {
 		switch(n.instrument) {
 			case 1: src = getSource("gab1"); n.amplitudeDB += 16; break;
 			case 2: src = getSource("hum"); break;
-			case 3: src = getSource("lol"); n.pitchSemitones+=12; n.amplitudeDB += 10; break;
-			case 4: src = getSource("gab2"); n.pitchSemitones += -7 + 12; pan=0.7; n.amplitudeDB += 6; break;
-			case 6: src = getSource("gab2"); n.pitchSemitones += -7 + 12; n.amplitudeDB += 6; break;
+			case 3: src = getSource("lol"); n.pitchSemitones+=12; n.amplitudeDB += 12; break;
+			case 4: src = getSource("gab2"); n.pitchSemitones += -7 + 12; pan=0.7; n.amplitudeDB += 3; break;
+			case 6: src = getSource("gab2"); n.pitchSemitones += -7 + 12; n.amplitudeDB += 3; break;
 			case 8: src = getSource("perc1"); n.amplitudeDB += 5; break;
 			case 9: src = getSource("perc2"); n.amplitudeDB += 5; break;
 			default: goto skip;
