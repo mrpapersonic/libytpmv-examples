@@ -12,5 +12,8 @@ example6
 example7
 example8
 example9
+private/*
+songs/*.bak
+*.mp3
 r3c
 /*.mp4

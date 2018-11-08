@@ -9,11 +9,11 @@ LIBS= $(LIBYTPMV_DIR)/libytpmv.a -lglfw -lGL -lGLEW -lEGL -lX11 -lgbm -lSoundTou
 CC_FLAGS = $(CFLAGS) -I$(LIBYTPMV_DIR)/include -Wall --std=c++0x `pkg-config --cflags gstreamer-1.0 gio-2.0` -fno-omit-frame-pointer
 LD_FLAGS = $(LDFLAGS) $(LIBS)
 
-all: example0 example1 example2 example3 example4 example5 example6 example7 example8 example9 example10
+all: example0 example1 example2 example3 example4 example5 example6 example7 example8 example9 example10 example11 example12 example13
 
 clean:
 	rm -f *.o
-	for i in 0 1 2 3 4 5 6 7 8 9 10; do \
+	for i in 0 1 2 3 4 5 6 7 8 9 10 11 12 13; do \
 		rm -f example$$i; \
 	done
 	rm -f r3c
@@ -58,6 +58,15 @@ example9: example9.o $(LIBYTPMV_DIR)/libytpmv.a
 	$(CXX) -o $@ $< $(CC_FLAGS) $(LD_FLAGS)
 
 example10: example10.o $(LIBYTPMV_DIR)/libytpmv.a
+	$(CXX) -o $@ $< $(CC_FLAGS) $(LD_FLAGS)
+
+example11: example11.o $(LIBYTPMV_DIR)/libytpmv.a
+	$(CXX) -o $@ $< $(CC_FLAGS) $(LD_FLAGS)
+
+example12: example12.o $(LIBYTPMV_DIR)/libytpmv.a
+	$(CXX) -o $@ $< $(CC_FLAGS) $(LD_FLAGS)
+
+example13: example13.o $(LIBYTPMV_DIR)/libytpmv.a
 	$(CXX) -o $@ $< $(CC_FLAGS) $(LD_FLAGS)
 
 r3c: r3c.o $(LIBYTPMV_DIR)/libytpmv.a
