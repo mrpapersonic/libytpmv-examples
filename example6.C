@@ -59,6 +59,7 @@ int main(int argc, char** argv) {
 	uniform float secondsAbs;
 	uniform float userParams[16];
 	uniform mat4 proj;
+	uniform vec2 resolution;
 	smooth out vec2 uv;
 	mat3 rotationMatrix(vec3 axis, float angle) {
 		axis = normalize(axis);
@@ -74,6 +75,8 @@ int main(int argc, char** argv) {
 		vec3 coords = myPos;
 		vec3 velocity = vec3(userParams[4], userParams[5], userParams[6]);
 		mat3 transforms = rotationMatrix(vec3(1.0,0.0,0.0), userParams[7]);
+		float aspect = resolution.x/resolution.y;
+		coords.x *= aspect;
 		coords += velocity*secondsRel;
 		
 		coords.x += sin(1.*secondsAbs + coords.x)*userParams[8];

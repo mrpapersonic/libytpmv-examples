@@ -59,6 +59,7 @@ int main(int argc, char** argv) {
 	uniform float secondsAbs;
 	uniform float userParams[16];
 	uniform mat4 proj;
+	uniform vec2 resolution;
 	smooth out vec2 uv;
 	mat3 rotationMatrix(vec3 axis, float angle) {
 		axis = normalize(axis);
@@ -78,6 +79,9 @@ int main(int argc, char** argv) {
 		float rotationTime = clamp((secondsAbs - userParams[8])*5.0 + 1.0, 0.0, 1.0);
 		//float sizeScale = clamp(pow(rotationTime*2.0-1.0,4)*2+0.5, 0.0, 1.0);
 		rotation += rotationTime * 3.142;
+		
+		float aspect = resolution.x/resolution.y;
+		coords.x *= aspect;
 		
 		coords.xy *= 1.3;
 		coords += velocity*secondsRel;
