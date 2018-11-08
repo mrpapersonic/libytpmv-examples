@@ -145,7 +145,7 @@ int main(int argc, char** argv) {
 				src = getSource("hum"); n.pitchSemitones+=24; n.amplitudeDB += 5;
 				break;
 			case 7:
-				src = getSource("lol"); n.pitchSemitones+=24; n.amplitudeDB += 26;
+				src = getSource("lol"); n.pitchSemitones+=24; n.amplitudeDB += 27;
 				n.amplitudeDB -= (n.pitchSemitones)/3.;
 				break;
 			case 5: src = getSource("perc1"); n.pitchSemitones=-1; n.amplitudeDB += 5; break;
