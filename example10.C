@@ -59,8 +59,12 @@ int main(int argc, char** argv) {
 		vec3 coords = myPos;
 		vec3 velocity = vec3(userParams[2], userParams[3], 0.0);
 		mat3 transforms = rotationMatrix(vec3(0.0,0.0,1.0), 0.2);
-		transforms = rotationMatrix(vec3(1.0,0.0,0.0), -1.1) * transforms;
+		transforms = rotationMatrix(vec3(1.0,0.0,0.0), -1.3) * transforms;
+		float aspect = 1280.0/720.0;
+		coords.x *= aspect;
 		
+		coords.x += (gl_InstanceID % 24)*2*aspect;
+		coords.y -= (gl_InstanceID / 24)*2;
 		coords = transforms * (coords + velocity*secondsAbs);
 		coords.z -= 5;
 		
@@ -120,7 +124,7 @@ int main(int argc, char** argv) {
 	vector<int> prevAudioSegments(32, -1);
 	vector<int> prevVideoSegments(4, -1);
 	
-	double vx = -0.1, vy = 0.3;
+	double vx = -0.1, vy = 0.5;
 	for(int i=0;i<(int)notes.size();i++) {
 		Note& n = notes[i];
 		Source* src = nullptr;
@@ -182,14 +186,15 @@ int main(int argc, char** argv) {
 		VideoSegment vs(n, src->video, bpm);
 		if(src->name == "kick1") vs.offsetSeconds = 1.0;
 		if(src->name == "lol") vs.startSeconds -= 0.15;
+		vs.endSeconds = vs.startSeconds + 1;
 		
 		if(prevVideoSegments.at(videoPosition) != -1)
 			videoSegments.at(prevVideoSegments.at(videoPosition)).endSeconds = vs.startSeconds;
 		prevVideoSegments.at(videoPosition) = (int)videoSegments.size();
 		
 		// set video clip position and size
-		//							opacity		radius,	vx,	vy,	sizeScale	opacityScale	transpKey (r,g,b)
-		vector<float> shaderParams = {1.0,		1000.,	vx,	vy,	0.1,		0.,				-1., -1., -1.};
+		//							opacity		radius,	vx,			vy,			sizeScale	opacityScale	transpKey (r,g,b)
+		vector<float> shaderParams = {1.0,		1000.,	(float)vx,	(float)vy,	0.1,		0.,				-1., -1., -1.};
 		switch(videoPosition) {
 			case 1:	vs.vertexes = genRectangle(-1, -1, 0, 0); break;
 			case 0: vs.vertexes = genRectangle(0, -1, 1, 0); break;
@@ -198,25 +203,15 @@ int main(int argc, char** argv) {
 			default: continue;
 		}
 		
-		int pX = (int)round(vx*vs.startSeconds/2)*2;
-		int pY = (int)round(vy*vs.startSeconds/2)*2;
+		vs.instances = 24*24;
+		
+		int pX = 10 + (int)round(vx*vs.startSeconds/2)*2*(1280./720.);
+		int pY = -6 + (int)round(vy*vs.startSeconds/2)*2;
 		auto& v = vs.vertexes;
 		for(int k=0; k<(int)v.size(); k+=5) {
 			v[k] -= pX;
 			v[k+1] -= pY;
 		}
-		
-		for(int x=-5; x<8; x++)
-			for(int y=-12; y<3; y++) {
-				auto& v = vs.vertexes;
-				int k = (int)v.size();
-				v.resize(v.size() + 30);
-				for(int j=0;j<30;j++) v[k+j] = v[j];
-				for(; k<(int)v.size(); k+=5) {
-					v[k] += x*2;
-					v[k+1] += y*2;
-				}
-			}
 		
 		vs.vertexShader = &vertexShader;
 		vs.shader = &shader;
