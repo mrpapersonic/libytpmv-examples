@@ -1,6 +1,18 @@
 # YTPMV examples
 Sample ytpmvs using libytpmv.
 
+**example13.C**
+- Song: Kwazy Webbit Hole (https://modarchive.org/index.php?request=view_by_moduleid&query=136266)
+- Video: https://www.youtube.com/watch?v=Z6Tj5jP0JZ4
+
+**example12.C**
+- Song: skifa2 (https://modarchive.org/index.php?request=view_by_moduleid&query=137773)
+- Video: https://www.youtube.com/watch?v=j1ffmsPBkLE
+
+**example10.C**
+- Song: radix - weather girl (https://modarchive.org/index.php?request=view_by_moduleid&query=68787)
+- Video: https://www.youtube.com/watch?v=NB9aM_q_zC4
+
 **example9.C**
 - Song: ohayou sayori (ddlc)
 - Video: https://www.youtube.com/watch?v=6WBrY08Mt-Q
