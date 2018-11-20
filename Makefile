@@ -6,7 +6,7 @@ CXX ?= g++
 
 LIBS= $(LIBYTPMV_DIR)/libytpmv.a -lglfw -lGL -lGLEW -lEGL -lX11 -lgbm -lSoundTouch -lpthread -lasound `pkg-config --libs gstreamer-1.0 gio-2.0`
 
-CC_FLAGS = $(CFLAGS) -I$(LIBYTPMV_DIR)/include -Wall --std=c++0x `pkg-config --cflags gstreamer-1.0 gio-2.0` -fno-omit-frame-pointer
+CC_FLAGS = $(CFLAGS) -I$(LIBYTPMV_DIR)/include -Wall --std=c++14 `pkg-config --cflags gstreamer-1.0 gio-2.0` -fno-omit-frame-pointer
 LD_FLAGS = $(LDFLAGS) $(LIBS)
 
 all: example0 example1 example2 example3 example4 example5 example6 example7 example8 example9 example10 example11 example12 example13
@@ -67,6 +67,9 @@ example12: example12.o $(LIBYTPMV_DIR)/libytpmv.a
 	$(CXX) -o $@ $< $(CC_FLAGS) $(LD_FLAGS)
 
 example13: example13.o $(LIBYTPMV_DIR)/libytpmv.a
+	$(CXX) -o $@ $< $(CC_FLAGS) $(LD_FLAGS)
+
+example14: example14.o $(LIBYTPMV_DIR)/libytpmv.a
 	$(CXX) -o $@ $< $(CC_FLAGS) $(LD_FLAGS)
 
 r3c: r3c.o $(LIBYTPMV_DIR)/libytpmv.a
