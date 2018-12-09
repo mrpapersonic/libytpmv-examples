@@ -53,12 +53,6 @@ int main(int argc, char** argv) {
 			&& pos.x<myend.x && pos.y<myend.y) \n\
 			return vec4(texture2D(image, relpos).rgb, 1.);\n\
 		return vec4(0,0,0,0);\n";
-
-	string img1data = get_file_contents("fuck.data");
-	Image img1 = {480, 371, img1data};
-	
-	VideoSource imgSource = {"source 1", {img1}, 1.0};
-	
 	
 	SongInfo inf;
 	vector<Instrument> instr;
@@ -94,7 +88,7 @@ int main(int argc, char** argv) {
 		{
 			int gridN = 4;
 			int gridSize = gridN*gridN;
-			VideoSegment vs(n, src->hasVideo?src->video:imgSource, bpm);
+			VideoSegment vs(n, src, bpm);
 			if(int(videoSegments.size()) >= gridSize) {
 				videoSegments[videoSegments.size()-gridSize].endSeconds = vs.startSeconds-0.01;
 			}
@@ -115,7 +109,7 @@ int main(int argc, char** argv) {
 			as.amplitude[1] *= (pan)*2;
 			segments.push_back(as);
 			
-			vs.shader = shader;
+			vs.shader = &shader;
 			vs.shaderParams = shaderParams;
 			vs.zIndex = n.channel;
 			videoSegments.push_back(vs);
