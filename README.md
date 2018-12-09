@@ -1,6 +1,21 @@
 # YTPMV examples
 Sample ytpmvs using libytpmv.
 
+**example17.C**
+- Collab entry for jakim - whatever it means (https://www.youtube.com/watch?v=jgr98tlqYmg)
+
+**example16.C**
+- Song: xyce - suaire de turin
+- Video: https://www.youtube.com/watch?v=W0U3DSVjF24
+
+**example15.C**
+- Song: edzes - inside beek's mind
+- Video: https://www.youtube.com/watch?v=yOjvXA-k7tw
+
+**example14.C**
+- Song: kitsune^2 - firebird
+- Video: https://www.youtube.com/watch?v=MYTm8WdMh0o
+
 **example13.C**
 - Song: Kwazy Webbit Hole (https://modarchive.org/index.php?request=view_by_moduleid&query=136266)
 - Video: https://www.youtube.com/watch?v=Z6Tj5jP0JZ4
