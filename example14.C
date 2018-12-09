@@ -343,7 +343,8 @@ int main(int argc, char** argv) {
 				n.amplitudeDB -= 3;
 				if(dir[n.channel]) flip(vs3.vertexes);
 				
-				
+				if(n.start.seq < 17)
+					n.pitchSemitones -= 12;
 				pan = 0.4;
 				VideoSegment& vs2 = placeNote("forkbend2", 5);
 				if(dir[n.channel]) flip(vs2.vertexes);
@@ -357,7 +358,6 @@ int main(int argc, char** argv) {
 					segments.push_back(as);
 				}
 				
-				//n.pitchSemitones -= 12;
 				pan = 0.6;
 				n.amplitudeDB -= 5;
 				delay += -0.15;

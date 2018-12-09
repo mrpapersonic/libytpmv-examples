@@ -311,6 +311,7 @@ int main(int argc, char** argv) {
 			// bass
 			n.amplitudeDB += 18;
 			n.pitchSemitones += 12;
+			n.keyframes.clear();
 			VideoSegment& vs = placeNote("horn");
 			vs.vertexes = genRectangleWithCenter(-1, -1, 1, 1, 0,0,1,1, 0.);
 			vs.zIndex = -200;

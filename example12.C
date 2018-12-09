@@ -262,6 +262,7 @@ int main(int argc, char** argv) {
 		int videoPosition = 0;
 		//Instrument& ins = instr.at(n.instrument==0?0:(n.instrument-1));
 		//n.pitchSemitones -= 7;
+		n.keyframes.clear();
 		
 		// select source
 		if(n.channel == 1) {
