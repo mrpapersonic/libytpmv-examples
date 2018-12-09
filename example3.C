@@ -40,18 +40,39 @@ int main(int argc, char** argv) {
 	trimSource("hum", 0.1);
 	trimSource("gab3", 0.1);
 	
+	
+	string vertexShader = R"aaaaa(
+	#version 330 core
+	layout(location = 0) in vec3 myPos;
+	layout(location = 1) in vec2 texPos;
+	uniform vec2 coordBase;
+	uniform mat2 coordTransform;
+	uniform float secondsRel;
+	uniform float secondsAbs;
+	uniform float userParams[16];
+	uniform vec2 resolution;
+	uniform mat4 proj;
+	smooth out vec2 uv;
+	float param(int i) { return userParams[i]; }
+	void main() {
+		vec3 coords = myPos;
+		float sizeScale = clamp(param(5) * secondsRel + param(4), 0.0, 1.0);
+		vec2 mypos = vec2(param(0), param(1));
+		vec2 mysize = vec2(param(2),param(3))*sizeScale;
+		
+		mypos += vec2(0.0,-0.5) * secondsRel;
+		
+		coords.xy = (coords.xy) * mysize - vec2(1,1);
+		coords.xy += mypos*2.0;
+		
+		gl_Position = vec4(coords,1.0);
+		gl_Position.xy = coordBase + gl_Position.xy * coordTransform;
+		uv = texPos;
+	}
+	)aaaaa";
+	
 	string shader =
-		"float sizeScale = clamp(param(5) * secondsRel + param(4), 0.0, 1.0);\n\
-		vec2 mypos = vec2(param(0), param(1));\n\
-		vec2 mysize = vec2(param(2),param(3))*sizeScale;\n\
-		mypos -= mysize*0.5;\n\
-		mypos += vec2(0.0,-0.5) * secondsRel;\n\
-		vec2 myend = mypos+mysize;\n\
-		vec2 relpos = (pos-mypos)/mysize;\n\
-		if(pos.x>=mypos.x && pos.y>=mypos.y \n\
-			&& pos.x<myend.x && pos.y<myend.y) \n\
-			return vec4(texture2D(image, relpos).rgb, 1.);\n\
-		return vec4(0,0,0,0);\n";
+		"return vec4(texture2D(image, pos).rgb, 1.);";
 
 	string img1data = get_file_contents("fuck.data");
 	Image img1 = {480, 371, img1data};
@@ -128,6 +149,7 @@ int main(int argc, char** argv) {
 			}
 			segments.push_back(as);
 			
+			vs.vertexShader = &vertexShader;
 			vs.shader = &shader;
 			vs.shaderParams = shaderParams;
 			vs.zIndex = n.channel;
