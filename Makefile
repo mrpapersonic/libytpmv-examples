@@ -13,10 +13,10 @@ all: example0 example1 example2 example3 example4 example5 example6 example7 exa
 
 clean:
 	rm -f *.o
-	for i in 0 1 2 3 4 5 6 7 8 9 10 11 12 13; do \
+	for i in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17; do \
 		rm -f example$$i; \
 	done
-	rm -f r3c
+	rm -f r3c r3c_2
 
 
 $(LIBYTPMV_DIR)/libytpmv.a: FORCE
