@@ -72,7 +72,19 @@ example13: example13.o $(LIBYTPMV_DIR)/libytpmv.a
 example14: example14.o $(LIBYTPMV_DIR)/libytpmv.a
 	$(CXX) -o $@ $< $(CC_FLAGS) $(LD_FLAGS)
 
+example15: example15.o $(LIBYTPMV_DIR)/libytpmv.a
+	$(CXX) -o $@ $< $(CC_FLAGS) $(LD_FLAGS)
+
+example16: example16.o $(LIBYTPMV_DIR)/libytpmv.a
+	$(CXX) -o $@ $< $(CC_FLAGS) $(LD_FLAGS)
+
+example17: example17.o $(LIBYTPMV_DIR)/libytpmv.a
+	$(CXX) -o $@ $< $(CC_FLAGS) $(LD_FLAGS)
+
 r3c: r3c.o $(LIBYTPMV_DIR)/libytpmv.a
+	$(CXX) -o $@ $< $(CC_FLAGS) $(LD_FLAGS)
+
+r3c_2: r3c_2.o $(LIBYTPMV_DIR)/libytpmv.a
 	$(CXX) -o $@ $< $(CC_FLAGS) $(LD_FLAGS)
 
 

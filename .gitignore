@@ -17,3 +17,5 @@ songs/*.bak
 *.mp3
 r3c
 /*.mp4
+*.AutoSave.*
+songs/*.wav
