@@ -10,15 +10,16 @@ CC_FLAGS = $(CFLAGS) -I$(LIBYTPMV_DIR)/include -Wall --std=c++14 `pkg-config --c
 LD_FLAGS = $(LDFLAGS) $(LIBS)
 
 all: example0 example1 example2 example3 example4 example5 example6 \
-	example7 example8 example9 example10 example11 example12 example13\
-	example14 example15 example16 example17 example18 example19 r3c r3c_2
+	example7 example8 example9 example10 example11 example12 example13 \
+	example14 example15 example16 example17 example18 example19 r3c r3c_2 \
+	libytpmv_test
 
 clean:
 	rm -f *.o
-	for i in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17; do \
+	for i in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19; do \
 		rm -f example$$i; \
 	done
-	rm -f r3c r3c_2
+	rm -f r3c r3c_2 libytpmv_test
 
 
 $(LIBYTPMV_DIR)/libytpmv.a: FORCE
@@ -28,6 +29,9 @@ FORCE:
 
 %.o: %.C
 	$(CXX) -c $(CC_FLAGS) $< -o $@
+
+libytpmv_test: libytpmv_test.o $(LIBYTPMV_DIR)/libytpmv.a
+	$(CXX) -o $@ $< $(CC_FLAGS) $(LD_FLAGS)
 
 example0: example0.o $(LIBYTPMV_DIR)/libytpmv.a
 	$(CXX) -o $@ $< $(CC_FLAGS) $(LD_FLAGS)

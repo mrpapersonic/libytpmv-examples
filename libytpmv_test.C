@@ -18,13 +18,11 @@ using namespace ytpmv;
 
 int main(int argc, char** argv) {
 	ytpmv::parseOptions(argc, argv);
-	string buf = get_file_contents("songs/weather.mod");
+	string buf = get_file_contents("songs/aix_-_plastic_pop_2.mod");
 	
 	addSource("o", "./sources/o_35000_fade.wav", "./sources/o.mkv", 3.5/30);
 	addSource("lol", "./sources/lol_20800.wav", "./sources/lol.mkv", 2.08/30);
-	addSource("ha", "./sources/ha2_21070.wav", "./sources/ha.mkv", 2.107/30);
-	addSource("hum", "./sources/bass1_4.wav",
-					"./sources/bass1.mkv", 2.8/30, 2., 1.);
+	addSource("hum", "./sources/agiriice_hpf3.wav", "./sources/agiriice.mp4", pow(2,0.1/12));
 	addSource("hum2", "sources/bass1_3.wav", "", 2.8/30, 1., 1.);
 	addSource("perc1", "sources/perc1.mkv",
 					"sources/perc1.mkv", 1., 1., 1.);
@@ -136,41 +134,31 @@ int main(int argc, char** argv) {
 		n.pitchSemitones -= 12;
 		
 		// select source
-		if(n.instrument == 10) {
+		if(n.instrument == 7) {
 			// kick
-			src = getSource("kick1"); n.pitchSemitones = 0; n.amplitudeDB += 6;
+			src = getSource("kick1"); n.pitchSemitones = 0; n.amplitudeDB += 8;
 			videoPosition = 0;
-		} else if(n.instrument == 11) {
+		} else if(n.instrument == 9) {
 			// snare
-			src = getSource("perc1"); n.pitchSemitones = -10; n.amplitudeDB += 4;
+			src = getSource("perc1"); n.pitchSemitones = 0; n.amplitudeDB += 7;
 			videoPosition = 0;
-			delay -= 0.05;
-		} else if(n.instrument == 12) {
+		} /* else if(n.instrument == 8) {
 			// hi-hat
-			src = getSource("perc1"); n.pitchSemitones = 0; n.amplitudeDB -= 7;
+			src = getSource("perc1"); n.pitchSemitones = 0; n.amplitudeDB += 5;
 			videoPosition = 0;
-		} else if((n.instrument <= 5 || n.instrument == 8) && n.channel != 5) {
-			// main 1
-			src = getSource("lol"); n.pitchSemitones += 24; n.amplitudeDB += 7;
+		} */ else if(n.instrument == 1) {
+			// lead
+			src = getSource("lol"); n.pitchSemitones += 32; n.amplitudeDB += 14;
 			videoPosition = 1;
-		} else if(n.channel == 1) {
+		} else if(n.instrument == 3) {
 			// bass
-			src = getSource("o"); n.pitchSemitones += 12; n.amplitudeDB += 6;
+			src = getSource("o"); n.pitchSemitones += 13; n.amplitudeDB += 6;
 			videoPosition = 2;
-		} else if((n.channel == 6 || n.channel == 7) && n.instrument == 14) {
-			// high 1
-			src = getSource("lol"); n.pitchSemitones += 24; n.amplitudeDB += 10;
-			pan = 0.3;
-			videoPosition = 3;
-		} else if(n.instrument == 17 && (n.channel == 2 || n.channel == 3)) {
-			// main 2
-			src = getSource("o"); n.pitchSemitones += 24; n.amplitudeDB += 6;
-			videoPosition = 1;
-		} else if(n.instrument == 19) {
-			// high 2
-			src = getSource("lol"); n.pitchSemitones += 24; n.amplitudeDB += 1;
-			pan = 0.7;
-			videoPosition = 3;
+		} else if(n.instrument == 5) {
+			/* arps */
+			src = getSource("hum"); n.pitchSemitones -= 10.5; n.amplitudeDB += 6;
+			videoPosition = 0;
+			delay = 0.;
 		} else continue;
 		
 		AudioSegment as(n, src->audio, bpm);
