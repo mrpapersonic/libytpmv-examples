@@ -644,7 +644,7 @@ void scene2Note(Note& n, Instrument& ins, string nCat) {
 		vs.shader = &shader;
 	if(nCat == "chords" || nCat == "bass")
 		vs.fragmentShader = &fragmentShader_wavy;
-	if(srcName == "Done")
+	if(srcName == "Done_1")
 		vs.shader = &shader;
 }
 
@@ -933,7 +933,7 @@ int main(int argc, char** argv) {
 	addSource2("ao.mkv",		pow(2,6./12) * bp,		1., 7., 0.043);
 	addSource2("unmasked.mp4",	pow(2,-0.8/12) * bp,	1., 3., 0.198);
 	addSource2("weeen.mp4", 	pow(2,-6.2/12) * bp,	1., 3., 0.18);
-	addSource2("Done.mp4", 		pow(2,-1.85/12) * bp,	1., 2., 0.047);
+	addSource2("Done_1.mp4", 	pow(2,-1.85/12) * bp,	1., 2., 0.047);
 	addSource2("drumkick.mp4", 	1.,						1., 6., 0.043);
 	addSource2("sigh.mp4",		1.,		 				3., 2., 0.052);
 	addSource2("smack.mp4",		1.,		 				1., 1., 0.086);
@@ -982,7 +982,7 @@ int main(int argc, char** argv) {
 	dupSource("drumkick", "slap", 4., 4., 5.);
 	
 	//                          0                 1        2      3       4          5         6              7            8	9
-	categories["lead"] = {"spherical/aaaaa2", "ytpmv1", "Done", "ao", "gab14", "ayaya", "luckystar2", "luckystar3", "renge1", "gab16"};
+	categories["lead"] = {"spherical/aaaaa2", "ytpmv1", "Done_1", "ao", "gab14", "ayaya", "luckystar2", "luckystar3", "renge1", "gab16"};
 	categories["lead2"] = {"spherical/aaaaa2", "forkbend2", "aaaa", "ayaya", "luckystar1", "weeen", "luckystar2", "luckystar3", "renge1", "gab13", "gab14", "gab16"};
 	//categories["lead2"] = {"spherical/aaaaa2", "forkbend2"};
 	categories["highlead"] = {"agiri_lead"};

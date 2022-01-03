@@ -48,7 +48,7 @@ int main(int argc, char** argv) {
 	addSource2("ao.mkv",		pow(2,6./12) * bp,		1., 7., 0.043);
 	addSource2("unmasked.mp4",	pow(2,-1.1/12) * bp,	1., 3., 0.121);
 	addSource2("weeen.mp4", 	pow(2,-6.2/12) * bp,	1., 0., 0.15);
-	addSource2("Done.mp4", 		pow(2,-1.8/12) * bp,	1., 2., 0.047);
+	addSource2("Done_1.mp4", 	pow(2,-1.8/12) * bp,	1., 2., 0.047);
 	addSource2("drumkick.mp4", 	1.,						1., 6., 0.043);
 	addSource2("sigh.mp4",		1.,		 				3., 2., 0.052);
 	addSource2("smack.mp4",		1.,		 				1., 1., 0.086);
@@ -70,7 +70,7 @@ int main(int argc, char** argv) {
 	
 	dupSource("drumkick", "slap", 4., 4., 5.);
 	
-	categories["lead"] = {"agiriice", "Done", "ao", "unmasked"};
+	categories["lead"] = {"agiriice", "Done_1", "ao", "unmasked"};
 	categories["highlead"] = {"agiri_lead"};
 	categories["wind"] = {"agiriice2", "agiriice3"};
 	categories["bass"] = {"agirisample", "ao_bass"};
